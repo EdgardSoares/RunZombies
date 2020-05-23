@@ -10,6 +10,8 @@ public class PlayerController : MonoBehaviour
     public float _gravity;
     public float _foodPoints;
     public bool _isAlive = true;
+
+    public GameObject _deadText;
     
     
 
@@ -30,7 +32,7 @@ public class PlayerController : MonoBehaviour
 
     void PlayerMove()
     {
-        if (_char.isGrounded)
+        if (_char.isGrounded && _isAlive == true)
         {
             _moveDirection = new Vector3(Input.GetAxis("Horizontal"), 0.0f, Input.GetAxis("Vertical"));
             _moveDirection *= _speed;        
@@ -39,9 +41,14 @@ public class PlayerController : MonoBehaviour
                 _moveDirection.y = _jumpSpeed;
             }
         }
-        
 
         _moveDirection.y -= _gravity * Time.deltaTime;
         _char.Move(_moveDirection * Time.deltaTime);
+
+
+        if(_isAlive == false)
+        {
+            _deadText.SetActive(true);
+        }
     }
 }

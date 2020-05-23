@@ -39,6 +39,7 @@ public class Enemy : MonoBehaviour
             if (_playerControl._foodPoints <= 0) //Se os pontos do player em _player._foodPoints for menor ou igual a 0, seta a variavel bool _isDamage como falso, parando de chamar a function
             {
                 _isDamege = false;
+                _playerControl._isAlive = false;
             }
         }
     }

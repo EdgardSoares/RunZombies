@@ -9,7 +9,7 @@ public class StartButton : MonoBehaviour
     public GameObject _tutorialText;
     public void OnMouseDown()
     {
-        _startText.SetActive(false);
-        _tutorialText.SetActive(true);
+        _startText.SetActive(false);    //Set falso para o UI do Menu Principal
+        _tutorialText.SetActive(true);     //set true para o UI do tutorial
     }
 }

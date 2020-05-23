@@ -11,6 +11,8 @@ public class pressSpace : MonoBehaviour
         NextScene();
     }
 
+
+    // Ao pressionar a tecla Spacebar do teclado, é chamado a scene SampleScene onde o jogo começa
     void NextScene()
     {
         if (Input.GetKey(KeyCode.Space))

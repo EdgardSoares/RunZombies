@@ -25,16 +25,7 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(_playerControl._isAlive == true)
-        {
-            float _distance = Vector3.Distance(transform.position, _player.transform.position);
-            if (_distance < _mobDistanceRun)
-            {
-                Vector3 _dirToPlayer = transform.position - _player.transform.position;
-                Vector3 _newPos = transform.position - _dirToPlayer;
-                _mob.SetDestination(_newPos);
-            }
-        }
+        ZombieChase();
         
 
         if(_isDamege == true) //Se a variavel bool _isDamage for true chama a function Damage()
@@ -48,6 +39,19 @@ public class Enemy : MonoBehaviour
         }
     }
 
+    void ZombieChase()
+    {
+        if (_playerControl._isAlive == true)
+        {
+            float _distance = Vector3.Distance(transform.position, _player.transform.position);
+            if (_distance < _mobDistanceRun)
+            {
+                Vector3 _dirToPlayer = transform.position - _player.transform.position;
+                Vector3 _newPos = transform.position - _dirToPlayer;
+                _mob.SetDestination(_newPos);
+            }
+        }
+    }
     //Function para diminir em -1 a quantidade de pontos que o jogador tem;
     void Damage()
     {

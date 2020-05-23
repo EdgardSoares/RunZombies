@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
@@ -11,6 +12,9 @@ public class PlayerController : MonoBehaviour
     public float _foodPoints;
     public bool _isAlive = true;
 
+    public float _clock;
+
+    public Text _clockText;
     public GameObject _deadText;
     
     
@@ -28,6 +32,7 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         PlayerMove();
+        Clock();
     }
 
     void PlayerMove()
@@ -50,5 +55,15 @@ public class PlayerController : MonoBehaviour
         {
             _deadText.SetActive(true);
         }
+    }
+
+    void Clock()
+    {
+        if(_isAlive == true)
+        {
+            _clock += Time.deltaTime;
+            _clockText.text = _clock.ToString();
+        }
+        
     }
 }

@@ -25,13 +25,17 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float _distance = Vector3.Distance(transform.position, _player.transform.position);
-        if (_distance < _mobDistanceRun)
+        if(_playerControl._isAlive == true)
         {
-            Vector3 _dirToPlayer = transform.position - _player.transform.position;
-            Vector3 _newPos = transform.position - _dirToPlayer;
-            _mob.SetDestination(_newPos);
+            float _distance = Vector3.Distance(transform.position, _player.transform.position);
+            if (_distance < _mobDistanceRun)
+            {
+                Vector3 _dirToPlayer = transform.position - _player.transform.position;
+                Vector3 _newPos = transform.position - _dirToPlayer;
+                _mob.SetDestination(_newPos);
+            }
         }
+        
 
         if(_isDamege == true) //Se a variavel bool _isDamage for true chama a function Damage()
         {

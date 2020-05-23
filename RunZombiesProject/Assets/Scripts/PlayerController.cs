@@ -16,6 +16,8 @@ public class PlayerController : MonoBehaviour
 
     public Text _clockText;
     public GameObject _deadText;
+
+    AudioSource _deadSound;
     
     
 
@@ -26,6 +28,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         _char = GetComponent<CharacterController>();
+        _deadSound = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -54,6 +57,7 @@ public class PlayerController : MonoBehaviour
         if(_isAlive == false)
         {
             _deadText.SetActive(true);
+            _deadSound.Play();
         }
     }
 

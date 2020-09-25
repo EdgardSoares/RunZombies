@@ -1,7 +1,7 @@
 # RunZombies
 
 Game Project 
-Run From Zombies, collet food and survive to the end
+Run From Zombies, collect food and survive to the end
 
 
 
